@@ -8,7 +8,9 @@ import com.jpacourse.persistence.entity.VisitEntity;
 import com.jpacourse.persistence.enums.TreatmentType;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.LockModeType;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Repository
 public class PatientDaoImpl extends AbstractDao<PatientEntity, Long> implements PatientDao {
@@ -35,5 +37,34 @@ public class PatientDaoImpl extends AbstractDao<PatientEntity, Long> implements 
         update(patientEntity);
 
         return visitEntity;
+    }
+
+    @Override
+    public List<PatientEntity> findByLastName(String lastName) {
+        return entityManager.createQuery("SELECT patient FROM PatientEntity patient WHERE lastName = :lastName",
+                PatientEntity.class).setParameter("lastName", lastName).getResultList();
+    }
+
+    @Override
+    public List<VisitEntity> findVisitsByPatientId(Long id) {
+        return entityManager.createQuery("SELECT visit FROM VisitEntity visit JOIN FETCH visit.patient patient WHERE patient.id = :id",
+                        VisitEntity.class).setParameter("id", id).getResultList();
+    }
+
+    @Override
+    public List<PatientEntity> findPatientsWithVisitsMoreThan(Integer number) {
+        return entityManager.createQuery("SELECT patient FROM PatientEntity patient JOIN patient.visits visits GROUP BY patient HAVING CAST(COUNT(visits) AS int) > :number",
+                        PatientEntity.class).setParameter("number", number).getResultList();
+    }
+
+    @Override
+    public List<PatientEntity> findPatientByGender(Boolean isMale) {
+        return entityManager.createQuery("SELECT patient FROM PatientEntity patient WHERE patient.is_male = :isMale",
+                        PatientEntity.class).setParameter("isMale", isMale).getResultList();
+    }
+
+    @Override
+    public PatientEntity findOne(Long id){
+        return entityManager.find(getDomainClass(), id, LockModeType.OPTIMISTIC);
     }
 }
