@@ -59,7 +59,7 @@ public class PatientDaoImpl extends AbstractDao<PatientEntity, Long> implements 
 
     @Override
     public List<PatientEntity> findPatientByGender(Boolean isMale) {
-        return entityManager.createQuery("SELECT patient FROM PatientEntity patient WHERE patient.is_male = :isMale",
+        return entityManager.createQuery("SELECT patient FROM PatientEntity patient WHERE patient.isMale = :isMale",
                         PatientEntity.class).setParameter("isMale", isMale).getResultList();
     }
 

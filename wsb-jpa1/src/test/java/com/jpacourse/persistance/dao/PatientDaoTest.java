@@ -85,4 +85,16 @@ public class PatientDaoTest {
         patients.forEach(patient ->
                 assertThat(patient.getVisits().size()).isGreaterThan(numberOfVisits));
     }
+
+    @Test
+    @Transactional
+    public void findPatientByGenderShouldReturnPatientsWithThatGender(){
+        Boolean isMale = true;
+
+        List<PatientEntity> patients = patientDao.findPatientByGender(isMale);
+
+        assertThat(patients).isNotEmpty();
+
+        patients.forEach(patient -> assertThat(patient.getIsMale()).isEqualTo(isMale));
+    }
 }
