@@ -14,8 +14,8 @@ public class PatientController {
     }
 
     @GetMapping("/patient/{id}")
-    PatientTO getById(@PathVariable final Long id){
-        final PatientTO patient = patientService.getById(id);
+    PatientTO findById(@PathVariable final Long id){
+        final PatientTO patient = patientService.findById(id);
 
         if(patient == null){
             throw new EntityNotFoundException(id);
