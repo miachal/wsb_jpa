@@ -8,6 +8,10 @@ import javax.persistence.*;
 @Table(name = "PATIENT")
 public class PatientEntity {
 
+	@Version
+	@Column(nullable = false)
+	private Integer version;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -109,4 +113,8 @@ public class PatientEntity {
 	public boolean getIsMale(){return isMale;}
 
 	public void setIsMale(boolean isMale) {this.isMale = isMale;}
+
+	public Integer getVersion() {return version;}
+
+	public void setVersion(Integer version) {this.version = version;}
 }
