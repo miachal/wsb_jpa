@@ -23,9 +23,9 @@ public class PatientTO implements Serializable {
 
     private LocalDate dateOfBirth;
 
-    private AddressEntity address;
+    private AddressTO address;
 
-    private List<VisitEntity> visits;
+    private List<VisitTO> visits;
 
     private boolean isMale;
 
@@ -57,13 +57,13 @@ public class PatientTO implements Serializable {
 
     public void setDateOfBirth(LocalDate date) { dateOfBirth = date;}
 
-    public AddressEntity getAddress(){return address;}
+    public AddressTO getAddress(){return address;}
 
-    public void setAddress(AddressEntity address) { this.address = address;}
+    public void setAddress(AddressTO address) { this.address = address;}
 
-    public List<VisitEntity> getVisits() {return visits;}
+    public List<VisitTO> getVisits() {return visits;}
 
-    public void setVisits(List<VisitEntity> visits) {this.visits = visits;}
+    public void setVisits(List<VisitTO> visits) {this.visits = visits;}
 
     public boolean getIsMale() {return isMale;}
 

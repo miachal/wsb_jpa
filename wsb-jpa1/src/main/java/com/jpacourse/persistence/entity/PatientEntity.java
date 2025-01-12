@@ -21,6 +21,7 @@ public class PatientEntity {
 	@Column(nullable = false)
 	private String telephoneNumber;
 
+	@Column(nullable = true)
 	private String email;
 
 	@Column(nullable = false)
@@ -29,10 +30,12 @@ public class PatientEntity {
 	@Column(nullable = false)
 	private LocalDate dateOfBirth;
 
+	// Jadnostronna od strony rodzica
 	@OneToOne
 	@JoinColumn(name = "address_id")
 	private AddressEntity address;
 
+	// Dwustronna
 	@OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
 	private List<VisitEntity> visits;
 

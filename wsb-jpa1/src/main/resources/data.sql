@@ -18,11 +18,11 @@ INSERT INTO address (id, city, address_line1, address_line2, postal_code) VALUES
 
 -- Insert doctors
 INSERT INTO doctor (id, first_name, last_name, telephone_number, email, doctor_number, specialization, address_id) VALUES
-(1, 'John', 'Doe', '123456789', 'john.doe@example.com', 'DOC001', 'CARDIOLOGY', 1),
-(2, 'Jane', 'Smith', '987654321', 'jane.smith@example.com', 'DOC002', 'NEUROLOGY', 2),
-(3, 'Alan', 'Turing', '555555555', 'alan.turing@example.com', 'DOC003', 'DERMATOLOGY', 3),
-(4, 'Marie', 'Curie', '666666666', 'marie.curie@example.com', 'DOC004', 'ONCOLOGY', 4),
-(5, 'Albert', 'Einstein', '777777777', 'albert.einstein@example.com', 'DOC005', 'RADIOLOGY', 5);
+(1, 'John', 'Doe', '123456789', 'john.doe@example.com', 'DOC001', 'SURGEON', 1),
+(2, 'Jane', 'Smith', '987654321', 'jane.smith@example.com', 'DOC002', 'GP', 2),
+(3, 'Alan', 'Turing', '555555555', 'alan.turing@example.com', 'DOC003', 'DERMATOLOGIST', 3),
+(4, 'Marie', 'Curie', '666666666', 'marie.curie@example.com', 'DOC004', 'OCULIST', 4),
+(5, 'Albert', 'Einstein', '777777777', 'albert.einstein@example.com', 'DOC005', 'SURGEON', 5);
 
 -- Insert patients
 INSERT INTO patient (id, first_name, last_name, telephone_number, email, patient_number, date_of_birth, address_id, is_male) VALUES
@@ -42,8 +42,8 @@ INSERT INTO visit (id, description, time, doctor_id, patient_id) VALUES
 
 -- Insert medical treatments
 INSERT INTO medical_treatment (id, description, type, visit_id) VALUES
-(1, 'Blood pressure monitoring', 'BASIC', 1),
-(2, 'MRI scan', 'ADVANCED', 2),
-(3, 'Skin biopsy', 'BASIC', 3),
-(4, 'Chemotherapy session', 'ADVANCED', 4),
-(5, 'Fracture diagnosis', 'BASIC', 5);
+(1, 'Blood pressure monitoring', 'USG', 1),
+(2, 'MRI scan', 'EKG', 2),
+(3, 'Skin biopsy', 'RTG', 3),
+(4, 'Chemotherapy session', 'USG', 4),
+(5, 'Fracture diagnosis', 'EKG', 5);

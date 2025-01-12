@@ -5,16 +5,14 @@ import com.jpacourse.persistence.dao.PatientDao;
 import com.jpacourse.service.impl.PatientServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
-public class PatientServiceImplTest {
+public class PatientServiceTest {
 
     @Autowired
     private PatientDao patientDao;
@@ -34,7 +32,7 @@ public class PatientServiceImplTest {
         PatientTO result = service.findById(id);
 
         assertThat(result).isNotNull();
-        assertThat(result.getId()).isEqualTo(id);
+        assertThat(result.getIsMale()).isEqualTo(false);
     }
 
     @Test
