@@ -25,12 +25,12 @@ INSERT INTO doctor (id, first_name, last_name, telephone_number, email, doctor_n
 (5, 'Albert', 'Einstein', '777777777', 'albert.einstein@example.com', 'DOC005', 'RADIOLOGY', 5);
 
 -- Insert patients
-INSERT INTO patient (id, first_name, last_name, telephone_number, email, patient_number, date_of_birth, address_id) VALUES
-(1, 'Alice', 'Brown', '111222333', 'alice.brown@example.com', 'PAT001', '1985-05-10', 6),
-(2, 'Bob', 'Green', '444555666', 'bob.green@example.com', 'PAT002', '1990-08-20', 7),
-(3, 'Charlie', 'White', '555555555', 'charlie.white@example.com', 'PAT003', '1970-02-15', 8),
-(4, 'Diana', 'Prince', '666666666', 'diana.prince@example.com', 'PAT004', '1995-11-25', 9),
-(5, 'Eve', 'Black', '777777777', 'eve.black@example.com', 'PAT005', '1988-03-30', 10);
+INSERT INTO patient (id, first_name, last_name, telephone_number, email, patient_number, date_of_birth, address_id, isMale) VALUES
+(1, 'Alice', 'Brown', '111222333', 'alice.brown@example.com', 'PAT001', '1985-05-10', 6, false),
+(2, 'Bob', 'Green', '444555666', 'bob.green@example.com', 'PAT002', '1990-08-20', 7, true),
+(3, 'Charlie', 'White', '555555555', 'charlie.white@example.com', 'PAT003', '1970-02-15', 8, true),
+(4, 'Diana', 'Prince', '666666666', 'diana.prince@example.com', 'PAT004', '1995-11-25', 9, false),
+(5, 'Eve', 'Black', '777777777', 'eve.black@example.com', 'PAT005', '1988-03-30', 10, false);
 
 -- Insert visits
 INSERT INTO visit (id, description, time, doctor_id, patient_id) VALUES
