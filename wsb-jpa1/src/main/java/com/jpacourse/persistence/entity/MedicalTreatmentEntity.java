@@ -14,11 +14,13 @@ public class MedicalTreatmentEntity {
 	@Column(nullable = false)
 	private String description;
 
+	@Column(nullable = true)
 	@Enumerated(EnumType.STRING)
 	private TreatmentType type;
 
-	@OneToOne
-	@JoinColumn(name = "visit_id")
+	// Dwustronna
+	@ManyToOne
+	@JoinColumn(name = "visit_id", nullable = false)
 	private VisitEntity visit;
 
 	public Long getId() {
@@ -45,4 +47,7 @@ public class MedicalTreatmentEntity {
 		this.type = type;
 	}
 
+	public VisitEntity getVisit() {return visit;}
+
+	public void setVisit(VisitEntity visit) {this.visit = visit;}
 }
